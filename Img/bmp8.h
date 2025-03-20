@@ -1,7 +1,3 @@
-//
-// Created by mater on 3/20/2025.
-//
-
 #ifndef BMP8_H
 #define BMP8_H
 
