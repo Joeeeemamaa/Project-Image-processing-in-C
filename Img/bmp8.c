@@ -1,6 +1,4 @@
-//
-// Created by mater on 3/20/2025.
-//
+
 #include <stdio.h>
 #include "bmp8.h"
 
