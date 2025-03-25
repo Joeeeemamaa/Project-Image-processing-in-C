@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-//
-// Created by mater on 3/20/2025.
-//
-=======
-
 #include <stdio.h>
 #include "bmp8.h"
 
@@ -98,5 +92,3 @@ void bmp8_printInfo(t_bmp8 *img) {
     printf("Color Depth: %d-bit\n", img->colorDepth);
     printf("Data Size: %d bytes\n", img->dataSize);
 }
-
->>>>>>> Stashed changes
