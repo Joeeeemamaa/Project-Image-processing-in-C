@@ -1,0 +1,5 @@
+# ninja log v6
+2	142	7679584622756397	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
+9	149	7679584622816814	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
+5	146	7679589500631457	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
+147	317	7679589502041436	Project_Image_processing_in_C.exe	93909a6e8b7237f1
