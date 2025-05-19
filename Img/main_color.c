@@ -1,6 +1,3 @@
-//
-// Created by mater on 5/19/2025.
-//
 #include "bmp24.h"
 #include <string.h>
 #include <stdio.h>
@@ -14,12 +11,15 @@ float box_blur_data[3][3] = {
 float *box_blur[3] = { box_blur_data[0], box_blur_data[1], box_blur_data[2] };
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        printf("Usage: %s <color_image.bmp>\n", argv[0]);
-        return 1;
+    const char *inputFile;
+
+    if (argc == 2) {
+        inputFile = argv[1];
+    } else {
+        inputFile = "flowers_color.bmp";
+        printf("No input provided, using default: %s\n", inputFile);
     }
 
-    const char *inputFile = argv[1];
     char outputFile[256];
     t_bmp24 *image = bmp24_loadImage(inputFile);
 
@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
 
     printf("\nOriginal Color Image Info:\n");
     bmp24_printInfo(image);
+    bmp24_free(image); // Free initial info image early
 
     // Negative
     strcpy(outputFile, "color_negative_");
@@ -71,6 +72,5 @@ int main(int argc, char *argv[]) {
         bmp24_free(blur);
     }
 
-    bmp24_free(image);
     return 0;
 }

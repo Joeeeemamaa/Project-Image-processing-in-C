@@ -41,59 +41,86 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target Project_Image_processing_in_C
+# Object build statements for EXECUTABLE target grayscale_processor
 
 
 #############################################
-# Order-only phony target for Project_Image_processing_in_C
+# Order-only phony target for grayscale_processor
 
-build cmake_object_order_depends_target_Project_Image_processing_in_C: phony || .
+build cmake_object_order_depends_target_grayscale_processor: phony || .
 
-build CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj: C_COMPILER__Project_Image_processing_in_C_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/bmp8.c || cmake_object_order_depends_target_Project_Image_processing_in_C
-  DEP_FILE = CMakeFiles\Project_Image_processing_in_C.dir\Img\bmp8.c.obj.d
+build CMakeFiles/grayscale_processor.dir/Img/main.c.obj: C_COMPILER__grayscale_processor_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/main.c || cmake_object_order_depends_target_grayscale_processor
+  DEP_FILE = CMakeFiles\grayscale_processor.dir\Img\main.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
-  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
-  OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
+  OBJECT_DIR = CMakeFiles\grayscale_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\grayscale_processor.dir\Img
 
-build CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj: C_COMPILER__Project_Image_processing_in_C_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/main.c || cmake_object_order_depends_target_Project_Image_processing_in_C
-  DEP_FILE = CMakeFiles\Project_Image_processing_in_C.dir\Img\main.c.obj.d
+build CMakeFiles/grayscale_processor.dir/Img/bmp8.c.obj: C_COMPILER__grayscale_processor_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/bmp8.c || cmake_object_order_depends_target_grayscale_processor
+  DEP_FILE = CMakeFiles\grayscale_processor.dir\Img\bmp8.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
-  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
-  OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
-
-build CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj: C_COMPILER__Project_Image_processing_in_C_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/main_color.c || cmake_object_order_depends_target_Project_Image_processing_in_C
-  DEP_FILE = CMakeFiles\Project_Image_processing_in_C.dir\Img\main_color.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
-  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
-  OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
-
-build CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj: C_COMPILER__Project_Image_processing_in_C_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/bmp24.c || cmake_object_order_depends_target_Project_Image_processing_in_C
-  DEP_FILE = CMakeFiles\Project_Image_processing_in_C.dir\Img\bmp24.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
-  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
-  OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
+  OBJECT_DIR = CMakeFiles\grayscale_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\grayscale_processor.dir\Img
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Project_Image_processing_in_C
+# Link build statements for EXECUTABLE target grayscale_processor
 
 
 #############################################
-# Link the executable Project_Image_processing_in_C.exe
+# Link the executable grayscale_processor.exe
 
-build Project_Image_processing_in_C.exe: C_EXECUTABLE_LINKER__Project_Image_processing_in_C_Debug CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj
+build grayscale_processor.exe: C_EXECUTABLE_LINKER__grayscale_processor_Debug CMakeFiles/grayscale_processor.dir/Img/main.c.obj CMakeFiles/grayscale_processor.dir/Img/bmp8.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
+  OBJECT_DIR = CMakeFiles\grayscale_processor.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = Project_Image_processing_in_C.exe
-  TARGET_IMPLIB = libProject_Image_processing_in_C.dll.a
-  TARGET_PDB = Project_Image_processing_in_C.exe.dbg
+  TARGET_FILE = grayscale_processor.exe
+  TARGET_IMPLIB = libgrayscale_processor.dll.a
+  TARGET_PDB = grayscale_processor.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target color_processor
+
+
+#############################################
+# Order-only phony target for color_processor
+
+build cmake_object_order_depends_target_color_processor: phony || .
+
+build CMakeFiles/color_processor.dir/Img/main_color.c.obj: C_COMPILER__color_processor_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/main_color.c || cmake_object_order_depends_target_color_processor
+  DEP_FILE = CMakeFiles\color_processor.dir\Img\main_color.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
+  OBJECT_DIR = CMakeFiles\color_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\color_processor.dir\Img
+
+build CMakeFiles/color_processor.dir/Img/bmp24.c.obj: C_COMPILER__color_processor_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/bmp24.c || cmake_object_order_depends_target_color_processor
+  DEP_FILE = CMakeFiles\color_processor.dir\Img\bmp24.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
+  OBJECT_DIR = CMakeFiles\color_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\color_processor.dir\Img
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target color_processor
+
+
+#############################################
+# Link the executable color_processor.exe
+
+build color_processor.exe: C_EXECUTABLE_LINKER__color_processor_Debug CMakeFiles/color_processor.dir/Img/main_color.c.obj CMakeFiles/color_processor.dir/Img/bmp24.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\color_processor.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = color_processor.exe
+  TARGET_IMPLIB = libcolor_processor.dll.a
+  TARGET_PDB = color_processor.exe.dbg
 
 
 #############################################
@@ -121,7 +148,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build Project_Image_processing_in_C: phony Project_Image_processing_in_C.exe
+build color_processor: phony color_processor.exe
+
+build grayscale_processor: phony grayscale_processor.exe
 
 # =============================================================================
 # Folder targets.
@@ -131,7 +160,7 @@ build Project_Image_processing_in_C: phony Project_Image_processing_in_C.exe
 #############################################
 # Folder: C:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug
 
-build all: phony Project_Image_processing_in_C.exe
+build all: phony grayscale_processor.exe color_processor.exe
 
 # =============================================================================
 # Built-in targets

@@ -1,3 +1,4 @@
-C:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug/CMakeFiles/Project_Image_processing_in_C.dir
+C:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug/CMakeFiles/grayscale_processor.dir
+C:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug/CMakeFiles/color_processor.dir
 C:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

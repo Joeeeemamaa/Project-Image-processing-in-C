@@ -1,11 +1,17 @@
 # ninja log v6
-10	227	7693464138337501	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
-23	199	7693464138462852	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
-227	781	7693464140496417	Project_Image_processing_in_C.exe	93909a6e8b7237f1
-5	585	7693474902002579	build.ninja	e6b51ff5a764e40d
-12	126	7693474902565592	CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj	a432e30bcc0f79b6
-7	128	7693474902519321	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
-4	153	7693474902489495	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
-17	160	7693474902613695	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj	7ed77cc5c140f83a
-6	87	7693475886267301	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
-88	206	7693475887086054	Project_Image_processing_in_C.exe	14e0c83f6b1515a0
+7	138	7693483099244390	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
+5	106	7693484266095233	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
+107	276	7693484267119566	Project_Image_processing_in_C.exe	14e0c83f6b1515a0
+12	65	7693484201729650	CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj	a432e30bcc0f79b6
+5	585	7693487269244222	build.ninja	e6b51ff5a764e40d
+29	166	7693483099454441	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj	7ed77cc5c140f83a
+1	95	7693487363242407	CMakeFiles/grayscale_processor.dir/Img/main.c.obj	2dfd1a07d184a051
+7	101	7693487363297256	CMakeFiles/grayscale_processor.dir/Img/bmp8.c.obj	4249b55b7837f85a
+101	189	7693487364231090	grayscale_processor.exe	d1c2376decaa9137
+2	93	7693487783393459	CMakeFiles/color_processor.dir/Img/main_color.c.obj	a619fe302ee9d241
+8	120	7693487783463291	CMakeFiles/color_processor.dir/Img/bmp24.c.obj	68724512c4ed896e
+120	210	7693487784575671	color_processor.exe	fcf83b6ecdd16e2b
+4	85	7693490174713760	CMakeFiles/color_processor.dir/Img/main_color.c.obj	a619fe302ee9d241
+86	194	7693490175528918	color_processor.exe	fcf83b6ecdd16e2b
+4	113	7693492113489606	CMakeFiles/grayscale_processor.dir/Img/main.c.obj	2dfd1a07d184a051
+114	234	7693492114582666	grayscale_processor.exe	d1c2376decaa9137
