@@ -44,6 +44,19 @@ t_bmp8* bmp8_loadImage(const char *filename) {
     image->height = height;
     image->colorDepth = colorDepth;
     image->dataSize = dataSize;
+    
+    // Copy header
+    memcpy(image->header, header, 54);
+    
+    // Read color table
+    if (fread(image->colorTable, sizeof(unsigned char), 1024, file) != 1024) {
+        printf("Error: Failed to read color table.\n");
+        free(image->data);
+        free(image);
+        fclose(file);
+        return NULL;
+    }
+    
     image->data = (unsigned char*)malloc(dataSize);
     if (!image->data) {
         printf("Error: Memory allocation for image data failed.\n");
