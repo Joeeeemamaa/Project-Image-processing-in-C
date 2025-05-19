@@ -156,3 +156,43 @@ void bmp8_threshold(t_bmp8 *img, int threshold) {
         img->data[i] = (img->data[i] > threshold) ? 255 : 0;
     }
 }
+
+void bmp8_applyFilter(t_bmp8 *img, float **kernel, int kernelSize) {
+    if (!img || !img->data) return;
+
+    int n = kernelSize / 2;
+    unsigned int width = img->width;
+    unsigned int height = img->height;
+    unsigned int rowSize = (width + 3) & ~3;
+
+    // Allocate memory for a copy of the original data
+    unsigned char *copy = (unsigned char *)malloc(img->dataSize);
+    if (!copy) {
+        printf("Error: Memory allocation for filter copy failed.\n");
+        return;
+    }
+    memcpy(copy, img->data, img->dataSize);
+
+    for (int y = n; y < (int)height - n; y++) {
+        for (int x = n; x < (int)width - n; x++) {
+            float sum = 0.0f;
+
+            for (int ky = -n; ky <= n; ky++) {
+                for (int kx = -n; kx <= n; kx++) {
+                    int ix = x + kx;
+                    int iy = y + ky;
+                    unsigned char pixel = copy[iy * rowSize + ix];
+                    sum += pixel * kernel[ky + n][kx + n];
+                }
+            }
+
+            int result = (int)(sum + 0.5f);
+            if (result < 0) result = 0;
+            if (result > 255) result = 255;
+
+            img->data[y * rowSize + x] = (unsigned char)result;
+        }
+    }
+
+    free(copy);
+}

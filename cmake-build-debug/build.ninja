@@ -63,6 +63,20 @@ build CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj: C_COMPILER__P
   OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
   OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
 
+build CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj: C_COMPILER__Project_Image_processing_in_C_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/main_color.c || cmake_object_order_depends_target_Project_Image_processing_in_C
+  DEP_FILE = CMakeFiles\Project_Image_processing_in_C.dir\Img\main_color.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
+  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
+  OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
+
+build CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj: C_COMPILER__Project_Image_processing_in_C_unscanned_Debug C$:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img/bmp24.c || cmake_object_order_depends_target_Project_Image_processing_in_C
+  DEP_FILE = CMakeFiles\Project_Image_processing_in_C.dir\Img\bmp24.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mater/Documents/GitHub/Project-Image-processing-in-C/Img
+  OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir
+  OBJECT_FILE_DIR = CMakeFiles\Project_Image_processing_in_C.dir\Img
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Project_Image_processing_in_C
@@ -71,7 +85,7 @@ build CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj: C_COMPILER__P
 #############################################
 # Link the executable Project_Image_processing_in_C.exe
 
-build Project_Image_processing_in_C.exe: C_EXECUTABLE_LINKER__Project_Image_processing_in_C_Debug CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj
+build Project_Image_processing_in_C.exe: C_EXECUTABLE_LINKER__Project_Image_processing_in_C_Debug CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Project_Image_processing_in_C.dir

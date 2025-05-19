@@ -1,6 +1,17 @@
 #include "bmp8.h"
 #include <string.h>
 
+/*
+// Example: Box Blur 3x3
+float box_blur_data[3][3] = {
+    {1.0f/9, 1.0f/9, 1.0f/9},
+    {1.0f/9, 1.0f/9, 1.0f/9},
+    {1.0f/9, 1.0f/9, 1.0f/9}
+};
+
+// Convert to float** before passing to the function
+float *box_blur[3] = { box_blur_data[0], box_blur_data[1], box_blur_data[2] };
+
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         printf("Usage: %s <input_image.bmp>\n", argv[0]);
@@ -54,6 +65,16 @@ int main(int argc, char *argv[]) {
         bmp8_free(threshold);
         printf("Thresholded image saved as: %s\n", outputFile);
     }
+    // Create blurred image using box blur filter
+    strcpy(outputFile, "blurred_");
+    strcat(outputFile, inputFile);
+    t_bmp8 *filtered = bmp8_loadImage(inputFile);
+    if (filtered) {
+        bmp8_applyFilter(filtered, box_blur, 3);
+        bmp8_saveImage(outputFile, filtered);
+        bmp8_free(filtered);
+        printf("Blurred image saved as: %s\n", outputFile);
+    }
 
     // Free memory
     bmp8_free(image);
@@ -61,3 +82,4 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+*/

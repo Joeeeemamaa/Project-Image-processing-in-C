@@ -1,8 +1,11 @@
 # ninja log v6
-2	142	7679584622756397	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
-9	149	7679584622816814	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
-5	146	7679589500631457	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
-147	317	7679589502041436	Project_Image_processing_in_C.exe	93909a6e8b7237f1
-13	204	7679601671532062	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
-5	220	7679601671449914	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
-220	423	7679601673598824	Project_Image_processing_in_C.exe	93909a6e8b7237f1
+10	227	7693464138337501	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
+23	199	7693464138462852	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
+227	781	7693464140496417	Project_Image_processing_in_C.exe	93909a6e8b7237f1
+5	585	7693474902002579	build.ninja	e6b51ff5a764e40d
+12	126	7693474902565592	CMakeFiles/Project_Image_processing_in_C.dir/Img/main_color.c.obj	a432e30bcc0f79b6
+7	128	7693474902519321	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
+4	153	7693474902489495	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp8.c.obj	55ce663122ef68f3
+17	160	7693474902613695	CMakeFiles/Project_Image_processing_in_C.dir/Img/bmp24.c.obj	7ed77cc5c140f83a
+6	87	7693475886267301	CMakeFiles/Project_Image_processing_in_C.dir/Img/main.c.obj	2d47ffb6868d5eed
+88	206	7693475887086054	Project_Image_processing_in_C.exe	14e0c83f6b1515a0
