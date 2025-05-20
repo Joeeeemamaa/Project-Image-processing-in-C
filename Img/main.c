@@ -8,23 +8,22 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
         inputFile = argv[1];
     } else {
-        inputFile = "input_image.bmp";  // <-- change this if needed
+        inputFile = "input_image.bmp";  // <-- default fallback
         printf("No input provided, using default: %s\n", inputFile);
     }
 
     char outputFile[256];
-    t_bmp8 *image;
+    t_bmp8 *image = bmp8_loadImage(inputFile);
 
-    image = bmp8_loadImage(inputFile);
     if (!image) {
         printf("Failed to load image.\n");
         return 1;
     }
 
-    // Show info
+    // Show image info
     bmp8_printInfo(image);
 
-    // Create negative image
+    /** NEGATIVE **/
     strcpy(outputFile, "negative_");
     strcat(outputFile, inputFile);
     t_bmp8 *negative = bmp8_loadImage(inputFile);
@@ -32,9 +31,10 @@ int main(int argc, char *argv[]) {
         bmp8_negative(negative);
         bmp8_saveImage(outputFile, negative);
         bmp8_free(negative);
+        printf("Negative image saved as %s\n", outputFile);
     }
 
-    // Brightness +50
+    /** BRIGHTNESS +50 **/
     strcpy(outputFile, "bright_");
     strcat(outputFile, inputFile);
     t_bmp8 *bright = bmp8_loadImage(inputFile);
@@ -42,9 +42,10 @@ int main(int argc, char *argv[]) {
         bmp8_brightness(bright, 50);
         bmp8_saveImage(outputFile, bright);
         bmp8_free(bright);
+        printf("Brightened image saved as %s\n", outputFile);
     }
 
-    // Threshold at 128
+    /** THRESHOLD AT 128 **/
     strcpy(outputFile, "threshold_");
     strcat(outputFile, inputFile);
     t_bmp8 *threshold = bmp8_loadImage(inputFile);
@@ -52,6 +53,23 @@ int main(int argc, char *argv[]) {
         bmp8_threshold(threshold, 128);
         bmp8_saveImage(outputFile, threshold);
         bmp8_free(threshold);
+        printf("Threshold image saved as %s\n", outputFile);
+    }
+
+    /** HISTOGRAM EQUALIZATION **/
+    strcpy(outputFile, "equalized_");
+    strcat(outputFile, inputFile);
+    t_bmp8 *equalized = bmp8_loadImage(inputFile);
+    if (equalized) {
+        unsigned int *hist = bmp8_computeHistogram(equalized);
+        unsigned int *cdf = bmp8_computeCDF(hist, equalized->width * equalized->height);
+        bmp8_equalize(equalized, cdf);
+
+        bmp8_saveImage(outputFile, equalized);
+        bmp8_free(equalized);
+        free(hist);
+        free(cdf);
+        printf("Equalized image saved as %s\n", outputFile);
     }
 
     bmp8_free(image);

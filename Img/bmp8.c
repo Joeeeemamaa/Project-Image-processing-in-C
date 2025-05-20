@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "bmp8.h"
 
 t_bmp8* bmp8_loadImage(const char *filename) {
@@ -193,6 +196,55 @@ void bmp8_applyFilter(t_bmp8 *img, float **kernel, int kernelSize) {
             img->data[y * rowSize + x] = (unsigned char)result;
         }
     }
-
     free(copy);
+}
+
+unsigned int *bmp8_computeHistogram(t_bmp8 *img) {
+    unsigned int *hist = calloc(256, sizeof(unsigned int));
+    if (!hist) {
+        fprintf(stderr, "Error: Failed to allocate memory for histogram.\n");
+        return NULL;
+    }
+
+    for (unsigned int i = 0; i < img->dataSize; i++) {
+        hist[img->data[i]]++;
+    }
+
+    return hist;
+}
+
+unsigned int *bmp8_computeCDF(unsigned int *hist, unsigned int total_pixels) {
+    unsigned int *cdf = calloc(256, sizeof(unsigned int));
+    if (!cdf) {
+        fprintf(stderr, "Error: Failed to allocate memory for CDF.\n");
+        return NULL;
+    }
+
+    // Compute raw CDF
+    cdf[0] = hist[0];
+    for (int i = 1; i < 256; i++) {
+        cdf[i] = cdf[i - 1] + hist[i];
+    }
+
+    // Find cdfmin (first non-zero)
+    unsigned int cdfmin = 0;
+    for (int i = 0; i < 256; i++) {
+        if (cdf[i] != 0) {
+            cdfmin = cdf[i];
+            break;
+        }
+    }
+
+    // Normalize to get equalized histogram
+    for (int i = 0; i < 256; i++) {
+        cdf[i] = round((double)(cdf[i] - cdfmin) / (total_pixels - cdfmin) * 255.0);
+    }
+
+    return cdf;
+}
+
+void bmp8_equalize(t_bmp8 *img, unsigned int *hist_eq) {
+    for (unsigned int i = 0; i < img->dataSize; i++) {
+        img->data[i] = (unsigned char)hist_eq[img->data[i]];
+    }
 }
