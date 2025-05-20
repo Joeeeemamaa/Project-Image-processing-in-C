@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.30"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Project_Image_processing_in_C",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "color_processor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-color_processor-Debug-15c6fc942a04a1b4c62e.json",
+					"name" : "color_processor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grayscale_processor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grayscale_processor-Debug-5eb8613c844456bfc378.json",
+					"name" : "grayscale_processor",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/Project-Image-processing-in-C/cmake-build-debug",
+		"source" : "C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/Project-Image-processing-in-C"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

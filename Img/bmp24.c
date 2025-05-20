@@ -5,7 +5,7 @@
 
 // Allocate a 2D array of t_pixel
 
-// ------------------------------- Allocation -------------------------------
+// Memory allocation and deallocation functions for image data
 t_pixel **bmp24_allocateDataPixels(int width, int height) {
     t_pixel **pixels = (t_pixel **)malloc(height * sizeof(t_pixel *));
     if (!pixels) return NULL;
@@ -47,7 +47,7 @@ void bmp24_free(t_bmp24 *img) {
     free(img);
 }
 
-// ------------------------------- Info -------------------------------
+// Print image information and metadata
 void bmp24_printInfo(t_bmp24 *img) {
     if (!img) return;
     printf("Image Info:\n");
@@ -56,7 +56,7 @@ void bmp24_printInfo(t_bmp24 *img) {
     printf("Color Depth: %d-bit\n", img->colorDepth);
 }
 
-// ------------------------------- File I/O -------------------------------
+// File input/output operations for loading and saving images
 t_bmp24 *bmp24_loadImage(const char *filename) {
     FILE *file = fopen(filename, "rb");
     if (!file) {
@@ -125,7 +125,7 @@ void bmp24_saveImage(t_bmp24 *img, const char *filename) {
     printf("Saved image to: %s\n", filename);
 }
 
-// ------------------------------- Processing -------------------------------
+// Image processing operations (negative, grayscale, brightness)
 void bmp24_negative(t_bmp24 *img) {
     for (int i = 0; i < img->height; i++) {
         for (int j = 0; j < img->width; j++) {
@@ -158,7 +158,7 @@ void bmp24_brightness(t_bmp24 *img, int value) {
     }
 }
 
-// ------------------------------- Convolution -------------------------------
+// Convolution and filtering operations
 t_pixel bmp24_convolution(t_bmp24 *img, int x, int y, float **kernel, int kernelSize) {
     int offset = kernelSize / 2;
     float sumR = 0, sumG = 0, sumB = 0;

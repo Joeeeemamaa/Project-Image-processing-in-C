@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
     // Show image info
     bmp8_printInfo(image);
 
-    /** NEGATIVE **/
+    // Create negative version of the image
     strcpy(outputFile, "negative_");
     strcat(outputFile, inputFile);
     t_bmp8 *negative = bmp8_loadImage(inputFile);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         printf("Negative image saved as %s\n", outputFile);
     }
 
-    /** BRIGHTNESS +50 **/
+    // Increase image brightness by 50 units
     strcpy(outputFile, "bright_");
     strcat(outputFile, inputFile);
     t_bmp8 *bright = bmp8_loadImage(inputFile);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
         printf("Brightened image saved as %s\n", outputFile);
     }
 
-    /** THRESHOLD AT 128 **/
+    // Apply binary threshold at value 128
     strcpy(outputFile, "threshold_");
     strcat(outputFile, inputFile);
     t_bmp8 *threshold = bmp8_loadImage(inputFile);
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
         printf("Threshold image saved as %s\n", outputFile);
     }
 
-    /** HISTOGRAM EQUALIZATION **/
+    // Apply histogram equalization to enhance contrast
     strcpy(outputFile, "equalized_");
     strcat(outputFile, inputFile);
     t_bmp8 *equalized = bmp8_loadImage(inputFile);
