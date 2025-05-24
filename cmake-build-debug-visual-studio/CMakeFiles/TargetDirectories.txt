@@ -1,4 +1,5 @@
 C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug-visual-studio/CMakeFiles/bmp8_processor.dir
 C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug-visual-studio/CMakeFiles/bmp24_processor.dir
+C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug-visual-studio/CMakeFiles/bmp_menu_processor.dir
 C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug-visual-studio/CMakeFiles/edit_cache.dir
 C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug-visual-studio/CMakeFiles/rebuild_cache.dir

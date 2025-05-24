@@ -10,6 +10,7 @@ A C-based image processing toolkit for BMP files. This project provides a compre
 ├── bmp24.c / bmp24.h       → 24-bit color BMP support
 ├── main.c                  → Demo for 8-bit BMP operations
 ├── main_color.c            → Demo for 24-bit BMP operations
+├── main_menu.c             → Interactive menu-driven interface
 ```
 
 ## 🖼 Features
@@ -43,9 +44,39 @@ gcc main.c bmp8.c -o bmp8_processor
 
 # Compile 24-bit processor
 gcc main_color.c bmp24.c -lm -o bmp24_processor
+
+# Compile menu-driven processor
+gcc main_menu.c bmp8.c bmp24.c -lm -o bmp_menu_processor
 ```
 
 ## 🚀 Usage
+
+### Menu-Driven Interface
+```bash
+./bmp_menu_processor
+```
+This interactive interface allows you to:
+1. Choose between 8-bit and 24-bit image processing
+2. Select your input BMP file
+3. Choose multiple operations to apply sequentially
+4. Get separate output files for each operation
+
+Available operations for 8-bit images:
+1. Negative
+2. Brightness +
+3. Brightness -
+4. Thresholding
+5. Histogram Equalization
+6. Convolution Filter
+
+Available operations for 24-bit images:
+1. Negative
+2. Brightness +
+3. Brightness -
+4. Grayscale
+5. Convolution Filter
+
+Each operation creates a new output file with a descriptive name indicating the operation performed and its sequence number.
 
 ### 8-bit Grayscale Processor
 ```bash

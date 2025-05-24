@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -41,15 +43,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "bmp24_processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-bmp24_processor-Debug-1184d81b5dbc3796a908.json",
+					"jsonFile" : "target-bmp24_processor-Debug-278ab20ab4b83f2e8040.json",
 					"name" : "bmp24_processor",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "bmp8_processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-bmp8_processor-Debug-1610d2bd4ebe2ab704f0.json",
+					"jsonFile" : "target-bmp8_processor-Debug-a085b11d2a58aa012369.json",
 					"name" : "bmp8_processor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bmp_menu_processor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bmp_menu_processor-Debug-e917e3d209925e17953e.json",
+					"name" : "bmp_menu_processor",
 					"projectIndex" : 0
 				}
 			]

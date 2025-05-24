@@ -17,11 +17,20 @@ add_executable(bmp24_processor
         Img/bmp24.c
 )
 
+# Menu-driven processor
+add_executable(bmp_menu_processor
+        Img/main_menu.c
+        Img/bmp8.c
+        Img/bmp24.c
+)
+
 # Link math library for 24-bit processor (only on Unix)
 if(UNIX)
     target_link_libraries(bmp24_processor m)
+    target_link_libraries(bmp_menu_processor m)
 endif()
 
 # Set include directories
 target_include_directories(bmp8_processor PRIVATE Img)
 target_include_directories(bmp24_processor PRIVATE Img)
+target_include_directories(bmp_menu_processor PRIVATE Img)

@@ -130,6 +130,59 @@ build bmp24_processor.exe: C_EXECUTABLE_LINKER__bmp24_processor_Debug CMakeFiles
   TARGET_IMPLIB = bmp24_processor.lib
   TARGET_PDB = bmp24_processor.pdb
 
+# =============================================================================
+# Object build statements for EXECUTABLE target bmp_menu_processor
+
+
+#############################################
+# Order-only phony target for bmp_menu_processor
+
+build cmake_object_order_depends_target_bmp_menu_processor: phony || .
+
+build CMakeFiles\bmp_menu_processor.dir\Img\main_menu.c.obj: C_COMPILER__bmp_menu_processor_unscanned_Debug C$:\Users\jerem\Documents\GitHub\Project-Image-processing-in-C\Img\main_menu.c || cmake_object_order_depends_target_bmp_menu_processor
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\jerem\Documents\GitHub\Project-Image-processing-in-C\Img
+  OBJECT_DIR = CMakeFiles\bmp_menu_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\bmp_menu_processor.dir\Img
+  TARGET_COMPILE_PDB = CMakeFiles\bmp_menu_processor.dir\
+  TARGET_PDB = bmp_menu_processor.pdb
+
+build CMakeFiles\bmp_menu_processor.dir\Img\bmp8.c.obj: C_COMPILER__bmp_menu_processor_unscanned_Debug C$:\Users\jerem\Documents\GitHub\Project-Image-processing-in-C\Img\bmp8.c || cmake_object_order_depends_target_bmp_menu_processor
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\jerem\Documents\GitHub\Project-Image-processing-in-C\Img
+  OBJECT_DIR = CMakeFiles\bmp_menu_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\bmp_menu_processor.dir\Img
+  TARGET_COMPILE_PDB = CMakeFiles\bmp_menu_processor.dir\
+  TARGET_PDB = bmp_menu_processor.pdb
+
+build CMakeFiles\bmp_menu_processor.dir\Img\bmp24.c.obj: C_COMPILER__bmp_menu_processor_unscanned_Debug C$:\Users\jerem\Documents\GitHub\Project-Image-processing-in-C\Img\bmp24.c || cmake_object_order_depends_target_bmp_menu_processor
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\jerem\Documents\GitHub\Project-Image-processing-in-C\Img
+  OBJECT_DIR = CMakeFiles\bmp_menu_processor.dir
+  OBJECT_FILE_DIR = CMakeFiles\bmp_menu_processor.dir\Img
+  TARGET_COMPILE_PDB = CMakeFiles\bmp_menu_processor.dir\
+  TARGET_PDB = bmp_menu_processor.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target bmp_menu_processor
+
+
+#############################################
+# Link the executable bmp_menu_processor.exe
+
+build bmp_menu_processor.exe: C_EXECUTABLE_LINKER__bmp_menu_processor_Debug CMakeFiles\bmp_menu_processor.dir\Img\main_menu.c.obj CMakeFiles\bmp_menu_processor.dir\Img\bmp8.c.obj CMakeFiles\bmp_menu_processor.dir\Img\bmp24.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\bmp_menu_processor.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\bmp_menu_processor.dir\
+  TARGET_FILE = bmp_menu_processor.exe
+  TARGET_IMPLIB = bmp_menu_processor.lib
+  TARGET_PDB = bmp_menu_processor.pdb
+
 
 #############################################
 # Utility command for edit_cache
@@ -160,6 +213,8 @@ build bmp24_processor: phony bmp24_processor.exe
 
 build bmp8_processor: phony bmp8_processor.exe
 
+build bmp_menu_processor: phony bmp_menu_processor.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -168,7 +223,7 @@ build bmp8_processor: phony bmp8_processor.exe
 #############################################
 # Folder: C:/Users/jerem/Documents/GitHub/Project-Image-processing-in-C/cmake-build-debug-visual-studio
 
-build all: phony bmp8_processor.exe bmp24_processor.exe
+build all: phony bmp8_processor.exe bmp24_processor.exe bmp_menu_processor.exe
 
 # =============================================================================
 # Built-in targets
