@@ -1,6 +1,6 @@
 /**
- * @file bmp24.h
- * @brief Header file for 24-bit BMP image processing library
+ * bmp24.h
+ * Header file for 24-bit BMP image processing library
  * 
  * This library provides functions for loading, manipulating, and saving 24-bit true color BMP images.
  * It includes basic image processing operations such as negative, brightness adjustment,
