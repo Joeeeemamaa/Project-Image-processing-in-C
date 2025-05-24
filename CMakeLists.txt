@@ -5,23 +5,22 @@ project(BMP_Image_Processor C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-# Add math library
-find_library(MATH_LIBRARY m)
-
 # 8-bit BMP processor
 add_executable(bmp8_processor
-    Img/main.c
-    Img/bmp8.c
+        Img/main.c
+        Img/bmp8.c
 )
 
 # 24-bit BMP processor
 add_executable(bmp24_processor
-    Img/main_color.c
-    Img/bmp24.c
+        Img/main_color.c
+        Img/bmp24.c
 )
 
-# Link math library for 24-bit processor
-target_link_libraries(bmp24_processor ${MATH_LIBRARY})
+# Link math library for 24-bit processor (only on Unix)
+if(UNIX)
+    target_link_libraries(bmp24_processor m)
+endif()
 
 # Set include directories
 target_include_directories(bmp8_processor PRIVATE Img)

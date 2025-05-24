@@ -1,15 +1,6 @@
 # ninja log v6
-28	353	7694339961187428	CMakeFiles/grayscale_processor.dir/Img/bmp8.c.obj	4249b55b7837f85a
-86	194	7693490175528918	color_processor.exe	fcf83b6ecdd16e2b
 107	276	7693484267119566	Project_Image_processing_in_C.exe	14e0c83f6b1515a0
-5	585	7694347040885919	build.ninja	e6b51ff5a764e40d
-18	336	7694339961094037	CMakeFiles/grayscale_processor.dir/Img/main.c.obj	2dfd1a07d184a051
-353	887	7694339964442999	grayscale_processor.exe	d1c2376decaa9137
-8	120	7693487783463291	CMakeFiles/color_processor.dir/Img/bmp24.c.obj	68724512c4ed896e
-4	85	7693490174713760	CMakeFiles/color_processor.dir/Img/main_color.c.obj	a619fe302ee9d241
-6	117	7694347055481517	CMakeFiles/grayscale_processor.dir/Img/main.c.obj	2dfd1a07d184a051
-16	149	7694347055582803	CMakeFiles/grayscale_processor.dir/Img/bmp8.c.obj	4249b55b7837f85a
-149	275	7694347056917734	grayscale_processor.exe	d1c2376decaa9137
-8	129	7694347177963242	CMakeFiles/color_processor.dir/Img/main_color.c.obj	a619fe302ee9d241
-15	189	7694347178032096	CMakeFiles/color_processor.dir/Img/bmp24.c.obj	68724512c4ed896e
-189	325	7694347179768348	color_processor.exe	fcf83b6ecdd16e2b
+5	585	7697992012255620	build.ninja	e6b51ff5a764e40d
+15	114	7697992085494448	CMakeFiles/bmp24_processor.dir/Img/main_color.c.obj	9a29f3a63b131dc1
+21	153	7697992085557315	CMakeFiles/bmp24_processor.dir/Img/bmp24.c.obj	627d10a55af94043
+153	308	7697992086876944	bmp24_processor.exe	96475dc047fb2fb0
