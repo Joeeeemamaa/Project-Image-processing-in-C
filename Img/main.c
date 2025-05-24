@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
         inputFile = argv[1];
     } else {
-        inputFile = "input_image.bmp";  // <-- default fallback
+        inputFile = "barbara_gray.bmp";  // <-- default fallback
         printf("No input provided, using default: %s\n", inputFile);
     }
 

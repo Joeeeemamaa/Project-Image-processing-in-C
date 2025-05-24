@@ -4,3 +4,12 @@
 15	114	7697992085494448	CMakeFiles/bmp24_processor.dir/Img/main_color.c.obj	9a29f3a63b131dc1
 21	153	7697992085557315	CMakeFiles/bmp24_processor.dir/Img/bmp24.c.obj	627d10a55af94043
 153	308	7697992086876944	bmp24_processor.exe	96475dc047fb2fb0
+1	93	7697996486905804	CMakeFiles/bmp8_processor.dir/Img/main.c.obj	7335cf6a4aec113
+6	104	7697996486957131	CMakeFiles/bmp8_processor.dir/Img/bmp8.c.obj	474965bdc1da81ee
+104	185	7697996487933709	bmp8_processor.exe	95f823fef8eb778c
+2	108	7697999136143647	CMakeFiles/bmp8_processor.dir/Img/main.c.obj	7335cf6a4aec113
+109	187	7697999137018737	bmp8_processor.exe	95f823fef8eb778c
+23	99	7697999928707637	CMakeFiles/bmp8_processor.dir/Img/main.c.obj	7335cf6a4aec113
+99	193	7697999929414503	bmp8_processor.exe	95f823fef8eb778c
+22	128	7697999986463824	CMakeFiles/bmp8_processor.dir/Img/main.c.obj	7335cf6a4aec113
+128	213	7697999987535862	bmp8_processor.exe	95f823fef8eb778c
