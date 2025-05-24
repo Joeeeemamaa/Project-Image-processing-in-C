@@ -124,6 +124,11 @@ void bmp24_saveImage(t_bmp24 *img, const char *filename) {
     fwrite(&img->header, sizeof(t_bmp_header), 1, file);
     fwrite(&img->header_info, sizeof(t_bmp_info), 1, file);
 
+    fseek(file, img->header.offset, SEEK_SET); // Seek to the pixel data start
+
+    int row_padding = (4 - (img->width * 3) % 4) % 4;
+    uint8_t padding_data[3] = {0, 0, 0}; // Padding bytes (can be anything, usually 0)
+
     for (int i = img->height - 1; i >= 0; i--) {
         for (int j = 0; j < img->width; j++) {
             uint8_t bgr[3] = {
@@ -132,6 +137,10 @@ void bmp24_saveImage(t_bmp24 *img, const char *filename) {
                 img->data[i][j].red
             };
             fwrite(bgr, sizeof(uint8_t), 3, file);
+        }
+        // Write padding bytes at the end of each row if needed
+        if (row_padding > 0) {
+            fwrite(padding_data, sizeof(uint8_t), row_padding, file);
         }
     }
     fclose(file);

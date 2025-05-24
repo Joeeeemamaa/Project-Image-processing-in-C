@@ -1,6 +1,5 @@
 /**
- * @file bmp8.h
- * @brief Header file for 8-bit BMP image processing library
+ * Header file for 8-bit BMP image processing library
  * 
  * This library provides functions for loading, manipulating, and saving 8-bit grayscale BMP images.
  * It includes basic image processing operations such as negative, brightness adjustment,
@@ -14,7 +13,7 @@
 #include <string.h>
 
 /**
- * @brief Structure representing an 8-bit BMP image
+ * Structure representing an 8-bit BMP image
  */
 typedef struct {
     unsigned char header[54];      ///< File header

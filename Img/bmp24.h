@@ -13,8 +13,10 @@
 #include <stdint.h>
 #include <stdio.h>  // For FILE*
 
+#pragma pack(1) // Disable padding
+
 /**
- * @brief Structure representing a single RGB pixel
+ * Structure representing a single RGB pixel
  */
 typedef struct {
     uint8_t red;    ///< Red value
@@ -23,7 +25,7 @@ typedef struct {
 } t_pixel;
 
 /**
- * @brief Structure containing BMP file header information
+ * Structure containing BMP file header information
  */
 typedef struct {
     uint16_t type;      ///< File type
@@ -34,7 +36,7 @@ typedef struct {
 } t_bmp_header;
 
 /**
- * @brief Structure containing BMP image information
+ * Structure containing BMP image information
  */
 typedef struct {
     uint32_t size;            ///< Header size
@@ -51,7 +53,7 @@ typedef struct {
 } t_bmp_info;
 
 /**
- * @brief Structure representing a 24-bit BMP image
+ * Structure representing a 24-bit BMP image
  */
 typedef struct {
     t_bmp_header header;     ///< File header
@@ -62,91 +64,93 @@ typedef struct {
     t_pixel **data;          ///< Pixel data
 } t_bmp24;
 
+#pragma pack() // Re-enable padding
+
 /**
- * @brief Allocates memory for pixel data
- * @param width Image width
- * @param height Image height
- * @return 2D array of pixels
+ * Allocates memory for pixel data
+ * Image width
+ * Image height
+ * 2D array of pixels
  */
 t_pixel **bmp24_allocateDataPixels(int width, int height);
 
 /**
- * @brief Frees memory allocated for pixel data
- * @param pixels 2D array of pixels
- * @param height Image height
+ * Frees memory allocated for pixel data
+ * 2D array of pixels
+ * Image height
  */
 void bmp24_freeDataPixels(t_pixel **pixels, int height);
 
 /**
- * @brief Allocates memory for a new BMP image
- * @param width Image width
- * @param height Image height
- * @param colorDepth Color depth in bits
- * @return Pointer to new image structure
+ * Allocates memory for a new BMP image
+ * Image width
+ * Image height
+ * Color depth in bits
+ * Pointer to new image structure
  */
 t_bmp24 *bmp24_allocate(int width, int height, int colorDepth);
 
 /**
- * @brief Frees memory allocated for an image
- * @param img Pointer to image structure
+ * Frees memory allocated for an image
+ * Pointer to image structure
  */
 void bmp24_free(t_bmp24 *img);
 
 /**
- * @brief Loads a 24-bit BMP image from file
- * @param filename Path to the BMP file
- * @return Pointer to loaded image structure, NULL if loading fails
+ * Loads a 24-bit BMP image from file
+ * Path to the BMP file
+ * Pointer to loaded image structure, NULL if loading fails
  */
 t_bmp24 *bmp24_loadImage(const char *filename);
 
 /**
- * @brief Saves a 24-bit BMP image to file
- * @param img Pointer to image structure
- * @param filename Output file path
+ * Saves a 24-bit BMP image to file
+ * Pointer to image structure
+ * Output file path
  */
 void bmp24_saveImage(t_bmp24 *img, const char *filename);
 
 /**
- * @brief Prints basic information about the image
- * @param img Pointer to image structure
+ * Prints basic information about the image
+ * Pointer to image structure
  */
 void bmp24_printInfo(t_bmp24 *img);
 
 /**
- * @brief Creates a negative version of the image
- * @param img Pointer to image structure
+ * Creates a negative version of the image
+ * Pointer to image structure
  */
 void bmp24_negative(t_bmp24 *img);
 
 /**
- * @brief Converts the image to grayscale
- * @param img Pointer to image structure
+ * Converts the image to grayscale
+ * Pointer to image structure
  */
 void bmp24_grayscale(t_bmp24 *img);
 
 /**
- * @brief Adjusts image brightness
- * @param img Pointer to image structure
- * @param value Brightness adjustment value (-255 to 255)
+ * Adjusts image brightness
+ * Pointer to image structure
+ * Brightness adjustment value (-255 to 255)
  */
 void bmp24_brightness(t_bmp24 *img, int value);
 
 /**
- * @brief Applies convolution to a single pixel
- * @param img Pointer to image structure
- * @param x X coordinate
- * @param y Y coordinate
- * @param kernel 2D filter kernel
- * @param kernelSize Size of the kernel
- * @return Resulting pixel value
+ * Applies convolution to a single pixel
+ * Pointer to image structure
+ * X coordinate
+ * Y coordinate
+ * 2D filter kernel
+ * Size of the kernel
+ * Resulting pixel value
  */
 t_pixel bmp24_convolution(t_bmp24 *img, int x, int y, float **kernel, int kernelSize);
 
 /**
- * @brief Applies a convolution filter to the entire image
- * @param img Pointer to image structure
- * @param kernel 2D filter kernel
- * @param kernelSize Size of the kernel (must be odd)
+ * Applies a convolution filter to the entire image
+ * Pointer to image structure
+ * 2D filter kernel
+ * Size of the kernel (must be odd)
  */
 void bmp24_applyFilter(t_bmp24 *img, float **kernel, int kernelSize);
 
