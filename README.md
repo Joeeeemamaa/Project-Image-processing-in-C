@@ -77,6 +77,7 @@ Available operations for 24-bit images:
 5. Convolution Filter
 
 Each operation creates a new output file with a descriptive name indicating the operation performed and its sequence number.
+Each output file will be moved inside a folder named result.
 
 ### 8-bit Grayscale Processor
 ```bash
