@@ -1,8 +1,13 @@
+/**
+ * Implementation of 8-bit BMP image processing functions
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include "bmp8.h"
 
+/* File I/O Operations */
 t_bmp8* bmp8_loadImage(const char *filename) {
     FILE *file = fopen(filename, "rb");
     if (!file) {
@@ -133,6 +138,7 @@ void bmp8_saveImage(const char *filename, t_bmp8 *img) {
     printf("Image saved to %s\n", filename);
 }
 
+/* Basic Image Transformations */
 void bmp8_negative(t_bmp8 *img) {
     if (!img || !img->data) return;
 
@@ -160,6 +166,7 @@ void bmp8_threshold(t_bmp8 *img, int threshold) {
     }
 }
 
+/* Advanced Image Processing */
 void bmp8_applyFilter(t_bmp8 *img, float **kernel, int kernelSize) {
     if (!img || !img->data) return;
 
@@ -199,6 +206,7 @@ void bmp8_applyFilter(t_bmp8 *img, float **kernel, int kernelSize) {
     free(copy);
 }
 
+/* Histogram Operations */
 unsigned int *bmp8_computeHistogram(t_bmp8 *img) {
     unsigned int *hist = calloc(256, sizeof(unsigned int));
     if (!hist) {

@@ -1,7 +1,16 @@
+/**
+ * Main program for 8-bit BMP image processing demonstration
+ * 
+ * This file contains the main program that demonstrates various image processing
+ * operations on 8-bit BMP images. It processes a single input image and generates
+ * multiple output images with different effects applied.
+ */
+
 #include "bmp8.h"
 #include <stdio.h>
 #include <string.h>
 
+/* Main function for 8-bit BMP image processing */
 int main(int argc, char *argv[]) {
     const char *inputFile;
 

@@ -1,20 +1,28 @@
-cmake_minimum_required(VERSION 3.30)
-project(Project_Image_processing_in_C C)
+cmake_minimum_required(VERSION 3.10)
+project(BMP_Image_Processor C)
 
-set(CMAKE_C_STANDARD 11)
+# Set C standard
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
-include_directories(Img)
+# Add math library
+find_library(MATH_LIBRARY m)
 
-# Grayscale executable
-add_executable(grayscale_processor
-        Img/main.c
-        Img/bmp8.c
-        Img/bmp8.h
+# 8-bit BMP processor
+add_executable(bmp8_processor
+    Img/main.c
+    Img/bmp8.c
 )
 
-# Color processing executable
-add_executable(color_processor
-        Img/main_color.c
-        Img/bmp24.c
-        Img/bmp24.h
+# 24-bit BMP processor
+add_executable(bmp24_processor
+    Img/main_color.c
+    Img/bmp24.c
 )
+
+# Link math library for 24-bit processor
+target_link_libraries(bmp24_processor ${MATH_LIBRARY})
+
+# Set include directories
+target_include_directories(bmp8_processor PRIVATE Img)
+target_include_directories(bmp24_processor PRIVATE Img)

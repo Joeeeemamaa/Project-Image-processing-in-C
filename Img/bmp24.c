@@ -1,11 +1,18 @@
+/**
+ * Implementation of 24-bit BMP image processing functions
+ * 
+ * This file contains the implementation of all functions declared in bmp24.h.
+ * It handles loading, saving, and various image processing operations for 24-bit BMP images.
+ */
+
 #include "bmp24.h"
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
-// Allocate a 2D array of t_pixel
+/* Memory Management */
 
-// Memory allocation and deallocation functions for image data
+/* Allocates memory for pixel data */
 t_pixel **bmp24_allocateDataPixels(int width, int height) {
     t_pixel **pixels = (t_pixel **)malloc(height * sizeof(t_pixel *));
     if (!pixels) return NULL;
@@ -21,12 +28,14 @@ t_pixel **bmp24_allocateDataPixels(int width, int height) {
     return pixels;
 }
 
+/* Frees memory allocated for pixel data */
 void bmp24_freeDataPixels(t_pixel **pixels, int height) {
     if (!pixels) return;
     for (int i = 0; i < height; i++) free(pixels[i]);
     free(pixels);
 }
 
+/* Allocates memory for a new BMP image */
 t_bmp24 *bmp24_allocate(int width, int height, int colorDepth) {
     t_bmp24 *img = (t_bmp24 *)malloc(sizeof(t_bmp24));
     if (!img) return NULL;
@@ -41,13 +50,16 @@ t_bmp24 *bmp24_allocate(int width, int height, int colorDepth) {
     return img;
 }
 
+/* Frees memory allocated for an image */
 void bmp24_free(t_bmp24 *img) {
     if (!img) return;
     bmp24_freeDataPixels(img->data, img->height);
     free(img);
 }
 
-// Print image information and metadata
+/* File I/O Operations */
+
+/* Prints basic information about the image */
 void bmp24_printInfo(t_bmp24 *img) {
     if (!img) return;
     printf("Image Info:\n");
@@ -56,7 +68,7 @@ void bmp24_printInfo(t_bmp24 *img) {
     printf("Color Depth: %d-bit\n", img->colorDepth);
 }
 
-// File input/output operations for loading and saving images
+/* Loads a 24-bit BMP image from file */
 t_bmp24 *bmp24_loadImage(const char *filename) {
     FILE *file = fopen(filename, "rb");
     if (!file) {
@@ -100,6 +112,7 @@ t_bmp24 *bmp24_loadImage(const char *filename) {
     return img;
 }
 
+/* Saves a 24-bit BMP image to file */
 void bmp24_saveImage(t_bmp24 *img, const char *filename) {
     if (!img) return;
     FILE *file = fopen(filename, "wb");
@@ -125,7 +138,9 @@ void bmp24_saveImage(t_bmp24 *img, const char *filename) {
     printf("Saved image to: %s\n", filename);
 }
 
-// Image processing operations (negative, grayscale, brightness)
+/* Basic Image Transformations */
+
+/* Creates a negative version of the image */
 void bmp24_negative(t_bmp24 *img) {
     for (int i = 0; i < img->height; i++) {
         for (int j = 0; j < img->width; j++) {
@@ -136,6 +151,7 @@ void bmp24_negative(t_bmp24 *img) {
     }
 }
 
+/* Converts the image to grayscale */
 void bmp24_grayscale(t_bmp24 *img) {
     for (int i = 0; i < img->height; i++) {
         for (int j = 0; j < img->width; j++) {
@@ -145,6 +161,7 @@ void bmp24_grayscale(t_bmp24 *img) {
     }
 }
 
+/* Adjusts image brightness */
 void bmp24_brightness(t_bmp24 *img, int value) {
     for (int i = 0; i < img->height; i++) {
         for (int j = 0; j < img->width; j++) {
@@ -157,6 +174,8 @@ void bmp24_brightness(t_bmp24 *img, int value) {
         }
     }
 }
+
+/* Advanced Image Processing */
 
 // Convolution and filtering operations
 t_pixel bmp24_convolution(t_bmp24 *img, int x, int y, float **kernel, int kernelSize) {
