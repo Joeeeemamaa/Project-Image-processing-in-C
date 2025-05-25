@@ -37,7 +37,8 @@ typedef struct BMP8 BMP8;
 typedef struct BMP24 BMP24;
 
 #define MAX_FILENAME 256    // Maximum length for filenames
-#define MAX_OPERATIONS 10   // Maximum number of operations that can be performed
+#define MAX_OPERATIONS_8BIT 6   // Maximum number of operations for 8-bit images
+#define MAX_OPERATIONS_24BIT 5  // Maximum number of operations for 24-bit images
 #define RESULT_FOLDER "result"  // Folder for output files
 
 // Function declarations
@@ -101,7 +102,30 @@ int main() {
         printf("\nEnter the BMP filename (e.g., image.bmp): ");
         if (scanf("%255s", filename) == 1) {
             if (fileExists(filename)) {
-                validInput = true;
+                // Validate image type
+                FILE* file = fopen(filename, "rb");
+                if (file) {
+                    unsigned char header[54];
+                    if (fread(header, 1, 54, file) == 54) {
+                        // Check if it's a BMP file
+                        if (header[0] == 'B' && header[1] == 'M') {
+                            // Get bits per pixel from header
+                            int bpp = *(unsigned short*)(header + 28);
+                            if ((imageType == 1 && bpp == 8) || (imageType == 2 && bpp == 24)) {
+                                validInput = true;
+                            } else {
+                                printf("Error: Selected image is %d-bit but you chose %d-bit processing.\n", bpp, imageType == 1 ? 8 : 24);
+                            }
+                        } else {
+                            printf("Error: Not a valid BMP file.\n");
+                        }
+                    } else {
+                        printf("Error: Could not read file header.\n");
+                    }
+                    fclose(file);
+                } else {
+                    printf("Error: Could not open file.\n");
+                }
             } else {
                 printf("File does not exist! Please try again.\n");
             }
@@ -122,11 +146,15 @@ int main() {
     // Get number of operations
     validInput = false;
     while (!validInput) {
-        printf("\nHow many operations do you want to perform? (1-%d): ", MAX_OPERATIONS);
-        if (scanf("%d", &numOperations) == 1 && numOperations > 0 && numOperations <= MAX_OPERATIONS) {
+        printf("\nHow many operations do you want to perform? (1-%d): ", 
+               imageType == 1 ? MAX_OPERATIONS_8BIT : MAX_OPERATIONS_24BIT);
+        if (scanf("%d", &numOperations) == 1 && 
+            numOperations > 0 && 
+            numOperations <= (imageType == 1 ? MAX_OPERATIONS_8BIT : MAX_OPERATIONS_24BIT)) {
             validInput = true;
         } else {
-            printf("Invalid input! Please enter a number between 1 and %d.\n", MAX_OPERATIONS);
+            printf("Invalid input! Please enter a number between 1 and %d.\n", 
+                   imageType == 1 ? MAX_OPERATIONS_8BIT : MAX_OPERATIONS_24BIT);
             while (getchar() != '\n');
         }
     }
@@ -176,7 +204,7 @@ void createResultFolder(void) {
 }
 
 void process8BitImage(const char* filename, int numOperations) {
-    int operations[MAX_OPERATIONS];
+    int operations[MAX_OPERATIONS_8BIT];
     int choice;
     bool validInput;
     t_bmp8* image = NULL;
@@ -291,7 +319,7 @@ void process8BitImage(const char* filename, int numOperations) {
 }
 
 void process24BitImage(const char* filename, int numOperations) {
-    int operations[MAX_OPERATIONS];
+    int operations[MAX_OPERATIONS_24BIT];
     int choice;
     bool validInput;
     t_bmp24* image = NULL;
