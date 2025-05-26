@@ -232,35 +232,52 @@ void bmp24_applyFilter(t_bmp24 *img, float **kernel, int kernelSize) {
 void bmp24_equalize(t_bmp24 *img) {
     if (!img) return;
 
-    // Step 1: Build histogram
+    // Step 1: Compute grayscale intensity (luminance) and histogram
     int hist[256] = {0};
+    uint8_t **intensity = (uint8_t **)malloc(img->height * sizeof(uint8_t *));
     for (int i = 0; i < img->height; i++) {
+        intensity[i] = (uint8_t *)malloc(img->width * sizeof(uint8_t));
         for (int j = 0; j < img->width; j++) {
-            uint8_t gray = (img->data[i][j].red + img->data[i][j].green + img->data[i][j].blue) / 3;
-            hist[gray]++;
+            // Luminance calculation using perceptual weights
+            uint8_t I = (uint8_t)(0.299f * img->data[i][j].red +
+                                  0.587f * img->data[i][j].green +
+                                  0.114f * img->data[i][j].blue);
+            intensity[i][j] = I;
+            hist[I]++;
         }
     }
 
-    // Step 2: Compute cumulative distribution function (CDF)
+    // Step 2: Compute CDF
     int cdf[256];
     cdf[0] = hist[0];
     for (int i = 1; i < 256; i++) {
         cdf[i] = cdf[i - 1] + hist[i];
     }
 
-    // Step 3: Normalize CDF
+    // Step 3: Normalize CDF to [0, 255]
     int total_pixels = img->width * img->height;
-    uint8_t lut[256]; // Look-Up Table for mapping old to new intensities
+    uint8_t lut[256];
     for (int i = 0; i < 256; i++) {
-        lut[i] = (uint8_t)((cdf[i] - cdf[0]) * 255.0 / (total_pixels - cdf[0]) + 0.5);
+        lut[i] = (uint8_t)(((cdf[i] - cdf[0]) * 255.0) / (total_pixels - cdf[0]) + 0.5f);
     }
 
-    // Step 4: Apply new grayscale value based on LUT
+    // Step 4: Apply equalization proportionally to preserve color
     for (int i = 0; i < img->height; i++) {
         for (int j = 0; j < img->width; j++) {
-            uint8_t gray = (img->data[i][j].red + img->data[i][j].green + img->data[i][j].blue) / 3;
-            uint8_t new_val = lut[gray];
-            img->data[i][j].red = img->data[i][j].green = img->data[i][j].blue = new_val;
+            uint8_t old_intensity = intensity[i][j];
+            uint8_t new_intensity = lut[old_intensity];
+
+            // Scale each color channel proportionally to original
+            float r_ratio = (float)img->data[i][j].red   / (float)(old_intensity == 0 ? 1 : old_intensity);
+            float g_ratio = (float)img->data[i][j].green / (float)(old_intensity == 0 ? 1 : old_intensity);
+            float b_ratio = (float)img->data[i][j].blue  / (float)(old_intensity == 0 ? 1 : old_intensity);
+
+            img->data[i][j].red   = fminf(255, r_ratio * new_intensity);
+            img->data[i][j].green = fminf(255, g_ratio * new_intensity);
+            img->data[i][j].blue  = fminf(255, b_ratio * new_intensity);
         }
+        free(intensity[i]);
     }
+    free(intensity);
 }
+
