@@ -228,3 +228,39 @@ void bmp24_applyFilter(t_bmp24 *img, float **kernel, int kernelSize) {
     }
     bmp24_freeDataPixels(copy, img->height);
 }
+
+void bmp24_equalize(t_bmp24 *img) {
+    if (!img) return;
+
+    // Step 1: Build histogram
+    int hist[256] = {0};
+    for (int i = 0; i < img->height; i++) {
+        for (int j = 0; j < img->width; j++) {
+            uint8_t gray = (img->data[i][j].red + img->data[i][j].green + img->data[i][j].blue) / 3;
+            hist[gray]++;
+        }
+    }
+
+    // Step 2: Compute cumulative distribution function (CDF)
+    int cdf[256];
+    cdf[0] = hist[0];
+    for (int i = 1; i < 256; i++) {
+        cdf[i] = cdf[i - 1] + hist[i];
+    }
+
+    // Step 3: Normalize CDF
+    int total_pixels = img->width * img->height;
+    uint8_t lut[256]; // Look-Up Table for mapping old to new intensities
+    for (int i = 0; i < 256; i++) {
+        lut[i] = (uint8_t)((cdf[i] - cdf[0]) * 255.0 / (total_pixels - cdf[0]) + 0.5);
+    }
+
+    // Step 4: Apply new grayscale value based on LUT
+    for (int i = 0; i < img->height; i++) {
+        for (int j = 0; j < img->width; j++) {
+            uint8_t gray = (img->data[i][j].red + img->data[i][j].green + img->data[i][j].blue) / 3;
+            uint8_t new_val = lut[gray];
+            img->data[i][j].red = img->data[i][j].green = img->data[i][j].blue = new_val;
+        }
+    }
+}

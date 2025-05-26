@@ -154,4 +154,10 @@ t_pixel bmp24_convolution(t_bmp24 *img, int x, int y, float **kernel, int kernel
  */
 void bmp24_applyFilter(t_bmp24 *img, float **kernel, int kernelSize);
 
+/**
+ * Performs histogram equalization to enhance contrast
+ * Pointer to image structure
+ */
+void bmp24_equalize(t_bmp24 *img);
+
 #endif // BMP24_H

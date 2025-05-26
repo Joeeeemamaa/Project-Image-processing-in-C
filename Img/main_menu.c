@@ -38,7 +38,7 @@ typedef struct BMP24 BMP24;
 
 #define MAX_FILENAME 256    // Maximum length for filenames
 #define MAX_OPERATIONS_8BIT 6   // Maximum number of operations for 8-bit images
-#define MAX_OPERATIONS_24BIT 5  // Maximum number of operations for 24-bit images
+#define MAX_OPERATIONS_24BIT 6  // Maximum number of operations for 24-bit images
 #define RESULT_FOLDER "result"  // Folder for output files
 
 // Function declarations
@@ -195,6 +195,7 @@ void printMenu24Bit(void) {
     printf("3. Brightness -\n");
     printf("4. Grayscale\n");
     printf("5. Convolution Filter\n");
+    printf("6. Histogram Equalization\n"); // <-- New option
 }
 
 void createResultFolder(void) {
@@ -338,12 +339,12 @@ void process24BitImage(const char* filename, int numOperations) {
         validInput = false;
         while (!validInput) {
             printMenu24Bit();
-            printf("\nEnter operation %d (1-5): ", i + 1);
-            if (scanf("%d", &choice) == 1 && choice >= 1 && choice <= 5) {
+            printf("\nEnter operation %d (1-6): ", i + 1);
+            if (scanf("%d", &choice) == 1 && choice >= 1 && choice <= 6) {
                 operations[i] = choice;
                 validInput = true;
             } else {
-                printf("Invalid input! Please enter a number between 1 and 5.\n");
+                printf("Invalid input! Please enter a number between 1 and 6.\n");
                 while (getchar() != '\n');
             }
         }
@@ -409,6 +410,13 @@ void process24BitImage(const char* filename, int numOperations) {
                     printf("Saved filtered image as %s\n", outputFilename);
                 }
                 break;
+
+            case 6: // Histogram Equalization
+                bmp24_equalize(processedImage);
+            snprintf(outputFilename, MAX_FILENAME, "%s/equalized_%d_%s", RESULT_FOLDER, i + 1, filename);
+            bmp24_saveImage(processedImage, outputFilename);
+            printf("Saved equalized image as %s\n", outputFilename);
+            break;
         }
         
         // Free the processed image

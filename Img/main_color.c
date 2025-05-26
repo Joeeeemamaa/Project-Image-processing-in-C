@@ -80,6 +80,14 @@ int main(int argc, char *argv[]) {
         bmp24_saveImage(blur, outputFile);
         bmp24_free(blur);
     }
-
+    // Histogram Equalization
+    strcpy(outputFile, "color_equalized_");
+    strcat(outputFile, inputFile);
+    t_bmp24 *equalized = bmp24_loadImage(inputFile);
+    if (equalized) {
+        bmp24_equalize(equalized);
+        bmp24_saveImage(equalized, outputFile);
+        bmp24_free(equalized);
+    }
     return 0;
 }
