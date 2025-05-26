@@ -185,7 +185,7 @@ void printMenu8Bit(void) {
     printf("3. Brightness -\n");
     printf("4. Thresholding\n");
     printf("5. Histogram Equalization\n");
-    printf("6. Convolution Filter\n");
+    printf("6. Blur (Convolution)\n");
 }
 
 void printMenu24Bit(void) {
@@ -194,7 +194,7 @@ void printMenu24Bit(void) {
     printf("2. Brightness +\n");
     printf("3. Brightness -\n");
     printf("4. Grayscale\n");
-    printf("5. Convolution Filter\n");
+    printf("5. Blur (Convolution)\n");
     printf("6. Histogram Equalization\n"); // <-- New option
 }
 
@@ -290,7 +290,7 @@ void process8BitImage(const char* filename, int numOperations) {
                 }
                 break;
                 
-            case 6: // Convolution Filter
+            case 6: // Blur (Convolution) Filter
                 {
                     float** kernel = (float**)malloc(3 * sizeof(float*));
                     for (int j = 0; j < 3; j++) {
